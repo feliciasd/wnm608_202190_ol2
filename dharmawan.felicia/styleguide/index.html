@@ -1,2 +1,223 @@
-<!-- test -->
-<!-- test 2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pups World</title>
+	<link rel="stylesheet" href="lib/css/styleguide.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+	<!-- <link rel="stylesheet" href="css/storetheme.css"> -->
+</head>
+<body>
+
+	<!-- header>h1+p -->
+	<header class="navbar">
+		<div class="container display-flex">
+			<div class="flex-none">
+				<h1>Pups World</h1>
+			</div>
+
+			<div class="flex-stretch"></div>
+			
+			<!-- nav.nav>ul>li*4>a[href=#article$]>{Link $} -->
+			
+				<nav class="flex-none nav">
+			<ul class="container display-flex">
+				<li><a href="#article1">New</a></li>
+				<li><a href="#article2">Toys</a></li>
+				<li><a href="#article3">Treats</a></li>
+				<li><a href="#article4">Cart</a></li>
+			</ul>
+				</nav>
+		</div>
+
+	</header>
+
+	<div class="image-overlay-container">
+    <div class="image-overlay" style="background-image: url('img/jumpdog.jpg');">
+        <p class="overlay-text">Welcome to Pups World!</p>
+        <a href="link-to-new-collection.html" class="shop-button">Shop New Collection</a>
+    </div>
+</div>
+
+<div class="container product-container">
+    <h2>Featured Products</h2>
+    <div class="display-flex flex-justify-left" style="flex-wrap: wrap; gap: 20px;">
+        <!-- Product 1 -->
+        <div class="card-2 flat">
+            <img src="img/dispenser.jpeg" alt="Product 1" style="width: 100%;">
+            <h3>Treat Dispenser</h3>
+            <div class="reviews">
+                ★★★★★
+            </div>
+            <p class="price">$39.99</p>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="card-2 flat">
+            <img src="img/food.jpeg" alt="Product 2" style="width: 100%;">
+            <h3>Squeaky Food Bowl</h3>
+            <div class="reviews">
+                ★★★★☆
+            </div>
+            <p class="price">$29.99</p>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="card-2 flat">
+            <img src="img/corn.jpg" alt="Product 3" style="width: 100%;">
+            <h3>Corn Toothbrush</h3>
+            <div class="reviews">
+                ★★★★★
+            </div>
+            <p class="price">$19.99</p>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="card-2 flat">
+            <img src="img/goose.jpg" alt="Product 4" style="width: 100%;">
+            <h3>Goose Squeaky Plush</h3>
+            <div class="reviews">
+                ★★★☆☆
+            </div>
+            <p class="price">$19.99</p>
+        </div>
+    </div>
+</div>
+
+<div class="signup-container">
+    <div class="signup-content">
+        <h2>Sign Up for Exclusive Dog Deals!</h2>
+        <form class="signup-form" action="/signup" method="post">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+	<!-- .container>article#article$.article*4>h2{Article $}+div.article-body>p*3>lorem40 -->
+	<div class="container about-us">
+		<article id="article1" class="article card soft">
+			<div class="display-flex flex-align-center">
+				<div class="flex-stretch">
+					<h2>About Pups World</h2>
+				</div>
+				<!-- <div class="flex-none">
+					<small>5:20am</small>
+				</div> -->
+			</div>
+			<div class="article-body">
+				<p>Pups World is your <b>ultimate destination for all things dog-related.</b></p>
+				<p>At our store, we pride ourselves on offering a wide selection of high-quality products designed to meet every aspect of your furry friend's life. <b>From innovative toys that keep them entertained for hours to nutritious food options</b> that cater to their health and well-being, we have everything you need to ensure your pup's happiness and health. Our range also includes <b>stylish accessories and essential grooming tools to keep your dog looking and feeling their best.</b> </p>
+				<p>With a commitment to quality and customer satisfaction, Pups World is dedicated to providing you and your beloved pet with the best products and services. Join our community and explore the wonderful world of Pups World, where we treat your pets like the family members they are.</p>
+			</div>
+		</article>
+		<!-- <article id="article2" class="article card hard">
+			<h2>Article 2</h2>
+			<div class="article-body">
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Sapiente odit ratione quam tenetur veniam voluptatibus debitis libero, temporibus eius reiciendis quisquam ipsa fugiat, doloremque recusandae eos? Possimus aliquid nihil eum doloremque, mollitia ut, tempore eaque assumenda quis quod nobis culpa.</p>
+				<p>Itaque similique ipsa sit ullam ipsum deleniti ex aliquid qui, placeat natus aliquam voluptatem mollitia eaque veritatis iusto commodi ipsam eum beatae. Quam quaerat quis, ut quasi, temporibus quae quo nihil! Porro nam a quisquam! Amet omnis doloremque libero, ipsum.</p>
+				<p>Illum ad nam facere totam nobis aspernatur eum error minus, atque asperiores praesentium voluptatum ex, eveniet porro aperiam quaerat hic. At qui repellat eligendi provident vitae reiciendis eum optio sapiente, delectus adipisci iure mollitia tenetur nulla voluptatum perferendis corporis, sint.</p>
+			</div>
+		</article> -->
+	</div>
+	<div class="view-window" style="background-image:url('img/quirkydog.jpg')">
+	</div>
+
+	<div class="container banner-container">
+    <!-- Sale Card -->
+    <div class="card-3 sale-card">
+        <img src="img/sale.jpeg" alt="Sale Image">
+        <h3>SALE | Up to 30% Off</h3>
+        <a href="#" class="button">Shop Now</a>
+    </div>
+
+    <!-- Birthday Card -->
+    <div class="card-3 birthday-card">
+        <img src="img/birthday.jpeg" alt="Birthday Image">
+        <h3>Pups Birthday!</h3>
+        <a href="#" class="button">Shop Now</a>
+    </div>
+
+    <!-- Best of Pups Card -->
+    <div class="card-3 best-bark-card">
+        <img src="img/best.jpeg" alt="Best of BARK Image">
+        <h3>Best of Pups</h3>
+        <a href="#" class="button">Shop Now</a>
+    </div>
+</div>
+
+
+	<!-- <div class="container">
+		<article id="article3" class="article">
+			<h2>Article 3</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit dolorum placeat quia et vel deleniti repellendus. Ut nihil natus doloribus perferendis blanditiis quibusdam provident voluptate quasi quidem, optio eum eligendi atque, placeat dolor. Architecto at inventore sint aperiam, illo.</p>
+				<p>Beatae minus quam eaque totam vitae commodi omnis enim, deleniti fugiat error at esse officia repellendus tempora libero, unde dolores consequatur, sed, earum doloremque facere. Perferendis unde suscipit distinctio voluptas. Beatae alias dolor similique mollitia maiores qui a fuga dolore.</p>
+				<p>Vel, non eius dolorem, minus aspernatur corrupti tempora ad neque architecto! Itaque suscipit rem nisi unde laudantium eius cum voluptatum vel molestiae animi, adipisci, est quas harum ipsam, debitis libero blanditiis recusandae. Aliquam tempore quaerat molestiae quia voluptates maiores sed.</p>
+			</div>
+		</article>
+		<article id="article4" class="article">
+			<h2>Article 4</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque totam facilis ullam fugit esse optio harum rerum incidunt aut ad vitae quidem, recusandae reiciendis laborum hic veniam quia sit. Perspiciatis consequatur harum, doloremque expedita repudiandae! Delectus, quae voluptates officiis eaque?</p>
+				<p>Esse perspiciatis exercitationem vitae, iste blanditiis quaerat corrupti qui animi modi libero ipsum molestiae ipsam inventore quia quis ea laudantium! Voluptatibus sit voluptates quam sed exercitationem fugit dicta dolorem accusantium. Delectus sint dicta soluta natus iure earum obcaecati? Tempore, quos.</p>
+				<p>Dolor incidunt repellat voluptate iste soluta dicta laboriosam accusantium ab quis numquam tenetur, qui ex atque blanditiis temporibus quaerat sit? Quas similique et voluptas quisquam magnam doloremque laudantium excepturi delectus commodi! Explicabo iste fuga velit, perferendis, distinctio molestiae magni ratione.</p>
+			</div>
+		</article>
+	</div>
+ -->
+<footer class="footer">
+    <div class="container display-flex">
+        <div class="footer-column">
+            <h4>SHOP</h4>
+            <ul>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Treats</a></li>
+                <li><a href="#">Chews</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>INFO</h4>
+            <ul>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Jobs</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>PUPS FAMILY</h4>
+            <ul>
+                <li><a href="#">PupsWorld</a></li>
+                <li><a href="#">Grooming Kit</a></li>
+                <li><a href="#">Dental</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>CHECK US OUT</h4>
+            <div class="social-media-links">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>  
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-pinterest"></a>  
+            </div>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <p>© 2024 Pups World. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
