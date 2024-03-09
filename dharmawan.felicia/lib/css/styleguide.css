@@ -14,9 +14,9 @@
     --color-neutral-medium:#999;
     --color-neutral-dark:#555;
 
-    --color-main-light:lightblue;
-    --color-main-medium:blue;
-    --color-main-dark:darkblue;
+    --color-main-light:#EBEBEB;
+    --color-main-medium:#B4B4B4;
+    --color-main-dark:#141414;
 
     --color-black:#000;
     --color-white:#fff; 
@@ -206,6 +206,9 @@ a:hover {
     .nav a {
         display:block;
         padding:0.2em 0.5em;
+        font-size: 14pt;
+        font-weight: 700;
+        margin-bottom: 10px;
     }
     .nav a:hover {
         background-color: var(--color-main-medium);
@@ -213,7 +216,7 @@ a:hover {
         text-decoration: none;
     }
     .nav .active a {
-        background-color: var(--color-main-light);
+        background-color: transparent;
         color: inherit;
     }
 
@@ -236,6 +239,10 @@ a:hover {
     padding: 0.5em 1em;
 }
 
+.nav-pills .active a {
+    background-color: var(--color-main-light);
+}
+
 
 .nav-crumbs a {
     display:inline-block;
@@ -254,12 +261,14 @@ a:hover {
 }
 
 .nav-material a {
-    padding: 0.5em 1em;
+    padding: 15px 20px;
     position:relative;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .nav-material a:hover {
-    background-color:var(--color-neutral-light);
+    background-color:transparent;
     color:inherit;
 }
 
@@ -277,6 +286,7 @@ a:hover {
 
 .nav-material .active a::after {
     height: 4px;
+    background-color: #B4B4B4;
 }
 
 
@@ -294,6 +304,7 @@ a:hover {
         padding:0 0.5em;
     }
 
+
 /* Card */
 
     .card {
@@ -308,6 +319,7 @@ a:hover {
         .card.soft {
             border-radius:0.5em;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom:1.5px;
         }
         .card.hard {
             border-radius:0.2em;
@@ -386,7 +398,8 @@ a:hover {
     background-attachment:fixed;
 }
 
-/* TABLES */
+/* Tables */
+
 .table {
     width:100%;
     border-collapse:collapse;
@@ -420,9 +433,16 @@ a:hover {
 }
 
 
+/* Figure */
 
 figcaption{
     display: block;
+    font-weight: 400;
+}
+
+.caption-body {
+    font-weight: 700;
+    margin-bottom: 7px;
 }
 
 figure {
@@ -431,6 +451,7 @@ figure {
     margin-block-end: 1em;
     margin-inline-start: 40px;
     margin-inline-end: 40px;
+
 }
 
 /* Figure */
@@ -438,9 +459,13 @@ figure {
 .figure {
     margin:0;
     background-color:var(--color-white);
+    position: relative;
+    text-align: left; 
 }
+
 .figure img {
     width: 100%;
+    align-items:center;
     vertical-align: text-bottom;
 }
 .figure figcaption {
@@ -448,11 +473,15 @@ figure {
 }
 
 .figure.product {
-    border-radius:0.5em;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    border-radius:0em;
     overflow:hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.figure.product:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to lift the card */
+}
 .product-overlay {
     position:relative;
     overflow:hidden;
@@ -478,8 +507,9 @@ figure {
 
 .product-overlay .caption-body {
     background-color:white;
-    border-radius:0.5em;
+    border-radius:2px;
     padding:1em;
+    margin: 1em;
     transform:translateY(2em);
     transition:all 0.3s;
 }
@@ -496,3 +526,508 @@ figure {
 .product-overlay:hover img {
     transform:scale(1.4,1.4);
 }
+
+.product-gallery {
+    position: relative;
+    width: 100%;
+}
+
+.main-image-container {
+    width: 80%; /* or adjust to your preferred size */
+    margin: none;
+    display: flex;
+    justify-content: left;
+}
+
+.main-image {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    width: 60px; /* or adjust to your preferred size */
+    height: 60px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.thumbnail:hover, .thumbnail.active {
+    opacity: 1;
+}
+
+
+/* Shared Styles */
+.form-card,
+.order-details {
+    max-width: 600px;
+    background: #fff;
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+}
+
+/* Headings */
+.form-card h3,
+.order-details h2 {
+    margin-bottom: 1em;
+    color: #333;
+    font-size: 1.5em; 
+}
+
+/* Input Styles */
+.form-card .form-group input,
+.order-details input[type="email"],
+.order-details input[type="text"],
+.order-details select {
+    width: 100%;
+    padding: 15px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; 
+}
+
+
+.form-card .form-group input::placeholder,
+.order-details input::placeholder {
+    color: #a3a3a3;
+}
+
+/* Focus on Inputs */
+.form-card .form-group input:focus,
+.order-details input:focus,
+.order-details select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Button Styles */
+.form-card .btn-submit,
+.order-details .btn-primary {
+    width: auto; 
+    padding: 16px 48px; 
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; 
+    text-align: center; =
+    margin: 20px 0;
+    font-family: "Lato", sans-serif;
+    margin-top: 15px;
+}
+
+/* Button Hover States */
+.form-card .btn-submit:hover,
+.order-details .btn-primary:hover {
+    background: #0056b3;
+}
+/* Checkbox Styles */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 20px; 
+}
+
+.checkbox-container input[type='checkbox'] {
+    margin-right: 10px; 
+}
+
+.checkbox-container label {
+    font-weight: normal;
+    color: #333;
+    margin-right: 10px; 
+}
+
+
+
+/* When the checkbox is checked */
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #007bff; 
+    border-color: #007bff; =
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Input Group Styles */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+}
+
+.input-group > * {
+    flex: 1 1 auto;
+}
+
+.input-group label {
+    flex-basis: 100%; 
+    margin-bottom: 5px;
+    color: #333; 
+}
+
+/* Style adjustments for card information */
+#card-number,
+#cvv,
+#expiry-date {
+    ont-family: "Lato", sans-serif; 
+    font-size: 16px;
+}
+
+#card-number::placeholder,
+#cvv::placeholder,
+#expiry-date::placeholder {
+    font-family: 'Lato', sans-serif;
+    color: #a3a3a3;
+}
+
+/* Focus on card inputs */
+#card-number:focus,
+#cvv:focus,
+#expiry-date:focus {
+    border-color: #007bff; 
+}
+
+.order-title {
+    font-family: "lato", sans-serif;
+    font-weight: 700;
+    font-size: 20pt;
+    color: #E49112;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+
+.quantity-selector {
+    border: 1px solid #ccc;
+    display: inline-flex;
+    border-radius: 50px; 
+}
+
+.quantity-selector button {
+    background-color: transparent;
+    border: none;
+    padding: 17px;
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.quantity-selector input {
+    width: 50px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+.add-to-bag {
+    background-color: #1E1E1E; 
+    border: none;
+    padding: 15px 60px;
+    border-radius: 50px; 
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px; 
+    font-family: "Lato", sans-serif;
+    outline: 3px solid #1E1E1E;
+    font-size: 16px;
+}
+
+.add-to-bag:hover {
+    background-color: transparent;
+    outline-color: #1E1E1E;
+    outline-style: solid;
+    outline-width: 3px;
+    color: #1E1E1E;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, outline-color 0.3s;
+    font-size: 16px;
+}
+
+.quantity-selector input::-webkit-outer-spin-button,
+.quantity-selector input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* There was a typo here 'backgroound-color: none;' which is not valid */
+    margin: 0;
+    /* Removed the invalid background-color property */
+}
+
+.quantity-selector input[type=number] {
+    -moz-appearance: textfield;
+} 
+
+.color-selection {
+    font-family: "Lato", sans-serif;
+    margin-bottom: 20px;
+}
+
+.colors {
+    display: flex;
+    justify-content: start;
+}
+
+.color-option {
+    border: 1.5px solid #1E1E1E;
+    padding: 20px 20px;
+    margin-right: 10px; /* Spacing between options */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: "Lato", sans-serif;
+    border-radius: 2px;
+    font-weight: 400;
+}
+
+.color-option.selected {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Color-specific styles, if you want to change the text color on hover */
+.color-option:hover,
+.color-option.selected {
+    background-color: black;
+    color: white;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 30px;
+    border: 1px solid #ccc; 
+}
+
+#search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    margin-right: 10px; 
+    font-family: "Lato", sans-serif;
+    border-radius: 30px;
+    color: white;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #1E1E1E; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+    font-family: "Lato", sans-serif;
+    outline: 2px solid;
+    outline-color: #1E1E1E;
+}
+
+#search-button:hover {
+    background-color: transparent; 
+    outline: 1px solid;
+    outline-color: #1E1E1E;
+    color: #1E1E1E;
+}
+
+#search-input:focus, #search-button:focus {
+    background-color: transparent; 
+    outline: 1px solid;
+    outline-color: #1E1E1E;
+    color: #1E1E1E;
+}
+
+.default-button {
+    background-color: #1E1E1E; 
+    border: none;
+    padding: 15px 100px;
+    border-radius: 2px; 
+    color: white;
+    font-size: 16px;
+    cursor: pointer; 
+    font-family: "Lato", sans-serif;
+    outline: 3px solid #1E1E1E;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.default-button:hover {
+    background-color: transparent;
+    outline-color: #1E1E1E;
+    outline-style: solid;
+    outline-width: 3px;
+    color: #1E1E1E;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, outline-color 0.3s;
+    font-size: 16px;
+}
+
+
+.disabled-button {
+    background-color: #EBEBEB; 
+    border: none;
+    padding: 15px 100px;
+    border-radius: 2px; 
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 30px;
+    font-family: "Lato", sans-serif;
+    outline: 3px solid #EBEBEB;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* The switch - the box around the slider */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Width of the switch */
+  height: 34px; /* Height of the switch */
+}
+
+/* Hide default HTML checkbox */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Switch background */
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; /* Height of the slider */
+  width: 26px; /* Width of the slider */
+  left: 4px;
+  bottom: 4px;
+  background-color: white; /* Slider color */
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #E49112; /* Color for when the switch is ON */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #E49112; /* Box shadow to indicate focus */
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px); /* Slide distance */
+  -ms-transform: translateX(26px); /* For IE9 and below */
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Base styles for the product options */
+.product-options {
+    font-family: "Lato", sans-serif;
+    margin: 20px 0;
+}
+
+.product-options input[type="checkbox"] {
+    display: none; 
+}
+
+
+.alert-label:before {
+    content: '!';
+    display: inline-block;
+     width: 30px;
+    height: 30px;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 27px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    border-radius: 30px;
+}
+
+
+#stock-alert:checked + .alert-label:before {
+    background-color: #dc3545; 
+    color: white;
+    border-color: #dc3545;
+}
+
+.save-later-label:before {
+    content: '\2665';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 29px;
+    cursor: pointer;
+    font-size: 19px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+
+#save-for-later:checked + .save-later-label:before {
+    content: '\2665'; 
+    color: #dc3545; 
+    border-color: #dc3545;
+}
+
+
+
+
+
+

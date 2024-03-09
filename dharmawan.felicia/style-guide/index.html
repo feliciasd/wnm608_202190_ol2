@@ -6,10 +6,15 @@
 
     <meta name="viewport" content="width=device-width">
 
+    <meta charset="UTF-8">
+
+
     <link rel="stylesheet" href="../lib/css/styleguide.css">
     <link rel="stylesheet" href="../lib/css/gridsystem.css">
     <link rel="stylesheet" href="../css/storetheme.css">
     
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 
 </head>
 <body>
@@ -25,8 +30,6 @@
 
     <div class="container" id="#typography">
             <h2 class="title">Typography</h2>
-
-           
 
 
             <div class="card soft" id="headings">
@@ -53,8 +56,6 @@
 
             </div>
         </div>
-
-        <br>
 
         <div class="container">
             <h2 class="title">Colors</h2>
@@ -83,279 +84,565 @@
         <br>
 
 
- <!--    <div class="container">
-       <h2>View Window</h2>
-    </div>
+ 
+    <!-- VIEW WINDOW -->
 
-   <div class="container" id="navigations">
-        <h2>Navigations</h2>
+   <!--  <div class="container" id="viewWindow">
+        <h2 class="title">View Window</h2>
+        <div class="view-window" style="background-image: url(../img/img_01.png);"></div>
+    </div>  -->
+
+    <!-- NAVIGATIONS -->
+
+
+    <div class="container" id="navigations">
+        <h2 class="title">Navigations</h2>
 
         <script>
             const makeNav = (classes='') => {
-                const links = ['home','store','about'];
+                const links = ['Home','Store','About'];
                 let ran = Math.floor(Math.random()*links.length);
                 document.write(`
-                <div>
+                    <div>
                     <nav class="${classes}">
-                        <ul>
-                        ${links.reduce((r,o,i)=>{
-                            return r+`<li class="${ran==i?'active':''}"><a href="#">${o}</a></li>`;
-                        },'')}
-                        </ul>
+                    <ul>
+                    ${links.reduce((r,o,i)=>{
+                        return r+`<li class="${ran==i? 'active':''}"><a href="#">${o}</a></li>`;
+                    },'')}
+                    </ul>
                     </nav>
+
                     </div>
-                `);
+                    `);
             }
         </script>
 
-        <div class="card soft">
-            <h3>Basic Nav</h3>
 
-            <script>makeNav('nav')</script>
-        </div>
+    <!--
+    <div class="card soft">
+        <h3>Basic Nav</h3>
+        <script>makeNav('nav')</script>
+    </div>
 
-        <div class="card soft">
-            <h3>Flex Nav</h3>
+    <div class="card soft">
+        <h3>Flex Nav</h3>
+        <script>makeNav('nav nav-flex')</script>
+    </div> 
 
-            <script>makeNav('nav nav-flex')</script>
-        </div>
+    <div class="card soft">
+        <h3>Stretch Nav</h3>
+        <script>makeNav('nav nav-stretch')</script>
+    </div> -->
 
-        <div class="card soft">
-            <h3>Stretch Nav</h3>
+    <div class="card soft">
+        <h3 class="body-title">Pills Nav</h3>
+        <script>makeNav('nav nav-pills')</script>
+    </div>
 
-            <script>makeNav('nav nav-stretch')</script>
-        </div>
+    <div class="card soft">
+        <h3 class="body-title">Crumbs Nav</h3>
+        <script>makeNav('nav nav-crumbs')</script>
+    </div>
 
-        <div class="card soft">
-            <h3>Pills Nav</h3>
+    <div class="card soft">
+        <h3 class="body-title">Material Nav</h3>
+        <script>makeNav('nav nav-material')</script>
+    </div>
 
-            <script>makeNav('nav nav-pills')</script>
-        </div>
+    <script>
+        $("#navigations a").on("click", function(e){
+            e.preventDefault();
+            $(this).closest("li").addClass("active")
+            .siblings().removeClass("active")
+        })
+    </script>
 
-        <div class="card soft">
-            <h3>Crumbs Nav</h3>
+    </div>
 
-            <script>makeNav('nav nav-crumbs')</script>
-        </div>
-
-        <div class="card soft">
-            <h3>Material Nav</h3>
-
-            <script>makeNav('nav nav-material')</script>
-        </div>
-
-        <script>
-            $("#navigations a").on("click",function(e){
-                e.preventDefault();
-                $(this).closest("li").addClass("active")
-                    .siblings().removeClass("active")
-            })
-        </script>
-
-     </div>
-
-     <div class="container">
+   <!--  <div class="container" id="gridsystem">
         <h2>Grid System</h2>
-     </div>
+    </div>
 
-     <div class="container">
+    <div class="container" id="flexsystem">
         <h2>Flex System</h2>
-     </div> 
+    </div>
+ -->
+    <!-- TABLES -->
 
-
-
-     <script>
-        const makeTable = (classes='') => {
-            const head = ['ID','Office','Name','Email','Phone'];
+   <!--  <script>
+        const makeTable = (classes = '') => {
+            const head = ['ID', 'Office', 'Name', 'Email', 'Phone'];
             const body = [
-                ['522',"Hamilton Cline",'hcline@academyart.edu','555-2424'],
-                ['512',"Fred Hale",'fmchale@academyart.edu','555-2424'],
-                ['522',"Michael Cline",'mcatan@academyart.edu','555-2424'],
-                ['514',"Andrea Pimento",'apimento@academyart.edu','555-2424'],
-                ['516',"DC Scrap",'dscrap@academyart.edu','555-2424'],
-            ];
 
-            // let ran = Math.floor(Math.random()*links.length);
+                ['522', 'Hamilton Cline', 'hcline@academyart.edu', '555-2424'],
+                ['512', 'Fred McHale', 'fmhale@academyart.edu', '555-2424'],
+                ['522', 'Micheal Catanzaro', 'mcatanzaro@academyart.edu', '555-2424'],
+                ['514', 'Andrea Pimentel', 'apimentel@academyart.edu', '555-2424'],
+                ['516', 'DC Scarpelli', 'dscarpelli@academyart.edu', '555-2424'],
+
+                ];
+
+                // let ran = Math.floor(Math.random()*link.length);
             document.write(`
-            <table class="${classes}">
-                <thead><tr>${head.reduce((r,o)=>r+`<th>${o}</th>`,'')}</tr></thead>
-                <tbody>${body.reduce((r,o,i)=>r+
+                <table class="${classes}">
+                <thead><tr>${head.reduce((r,o)=> r + `<th>${o}</th>`, '')}</tr></thead>
+                <tbody>${body.reduce((r,o,i) => r+ 
                     `<tr>${
-                        [i+1,...o].reduce((r,o)=>r+`<td>${o}</td>`,'')
-                    }</tr>`,'')
-                }</tbody>
-            </table>
-            `);
+                        [i+1,...o].reduce((r,o) => r+`<td>${o}</td>`, '')
+                    }</tr>`, '')}
+                </tbody>
+                </table>
+                `)
         }
-     </script>
-     <div class="container">
+    </script>
+
+    <div class="container" id="tables">
         <h2>Tables</h2>
-
-            <div class="card soft">
-                <h3>Basic Table</h3>
-                <script>makeTable("table")</script>
-            </div>
-
-            <div class="card soft">
-                <h3>Striped Table</h3>
-                <script>makeTable("table striped")</script>
-            </div>
-
-            <div class="card soft">
-                <h3>Striped Lined Vertical</h3>
-                <script>makeTable("table lined vertical")</script>
-            </div>
-
-            <div class="card soft">
-                <h3>Striped Lined Horizontal</h3>
-                <script>makeTable("table lined horizontal")</script>
-            </div>
-
-            <div class="card soft">
-                <h3>Striped Lined Border</h3>
-                <script>makeTable("table lined border")</script>
-            </div>
-
-            <div class="card soft">
-                <h3>Striped Lined All</h3>
-                <script>makeTable("table lined all")</script>
-            </div>
-
-            <div class="card soft">
-                <h3>Combinations</h3>
-                <script>makeTable("table lined vertical border striped")</script>
-            </div>
+        <div class="card soft">
+            <h3>Basic Table</h3>
+            <script>makeTable("table")</script>
         </div>
 
-  
-
-        <h2 id="figures">Figures</h2>
-
-        <div class="card">
-            <h3>Basic Figure</h3>
-
-            <figure class="figure">
-                <img src="../img/baby.jpg" alt="">
-                <figcaption>Product</figcaption>
-            </figure>
-
-            
-        </div>
-        <div class="grid gap">
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure">
-                    <img src="../img/kitty1.jpg" alt="">
-                    <figcaption>Product</figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure">
-                    <img src="../img/octopus1.jpg" alt="">
-                    <figcaption>Product</figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure">
-                    <img src="../img/bear1.jpg" alt="">
-                    <figcaption>Product</figcaption>
-                </figure>
-            </div>
+        <div class="card soft">
+            <h3>Striped Table</h3>
+            <script>makeTable("table striped")</script>
         </div>
 
-        <h3>Figure Grid</h3>
-
-        <div class="grid gap">
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure">
-                    <img src="../img/kitty1.jpg" alt="">
-                    <figcaption>Product</figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure">
-                    <img src="../img/octopus1.jpg" alt="">
-                    <figcaption>Product</figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure">
-                    <img src="../img/bear1.jpg" alt="">
-                    <figcaption>Product</figcaption>
-                </figure>
-            </div>
+        <div class="card soft">
+            <h3>Striped Lined Vetrical Table</h3>
+            <script>makeTable("table lined vertical")</script>
         </div>
 
-        <h3>Product Grid</h3>
-
-        <div class="grid gap">
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure product">
-                    <img src="../img/kitty1.jpg" alt="">
-                    <figcaption>
-                        <div>Product Name</div>
-                        <div>$24.99</div>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure product">
-                    <img src="../img/octopus1.jpg" alt="">
-                    <figcaption>
-                        <div>Product Name</div>
-                        <div>$24.99</div>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure product">
-                    <img src="../img/bear1.jpg" alt="">
-                    <figcaption>
-                        <div>Product Name</div>
-                        <div>$24.99</div>
-                    </figcaption>
-                </figure>
-            </div>
+        <div class="card soft">
+            <h3>Striped Lined Horizontal Table</h3>
+            <script>makeTable("table lined horizontal")</script>
         </div>
 
-        <h3>Product Overlay</h3>
+        <div class="card soft">
+            <h3>Lined Border Table</h3>
+            <script>makeTable("table lined border")</script>
+        </div>
 
-        <div class="grid gap">
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure product-overlay">
-                    <img src="../img/kitty1.jpg" alt="">
-                    <figcaption>
-                        <div class="caption-body">
-                            <div>Product Name</div>
-                            <div>$24.99</div>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure product-overlay">
-                    <img src="../img/octopus1.jpg" alt="">
-                    <figcaption>
-                        <div class="caption-body">
-                            <div>Product Name</div>
-                            <div>$24.99</div>
-                        </div>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <figure class="figure product-overlay">
-                    <img src="../img/bear1.jpg" alt="">
-                    <figcaption>
-                        <div class="caption-body">
-                            <div>Product Name</div>
-                            <div>$24.99</div>
-                        </div>
-                    </figcaption>
-                </figure>
+        <div class="card soft">
+            <h3>Striped Lined All Table</h3>
+            <script>makeTable("table lined all")</script>
+        </div>
+
+        <div class="card soft">
+            <h3>Cominations Table</h3>
+            <script>makeTable("table lined vertical border striped")</script>
+        </div>
+
+    </div> -->
+
+    <!-- FIGURE -->
+
+   <div class="container">
+    <h2 class="title">Product Gallery</h2>
+    <div class="product-gallery">
+        <!-- Main image -->
+        <div class="main-image-container">
+            <img src="https://via.placeholder.com/400x400?text=Main+Product+Image" alt="Main Product" class="main-image"/>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbnails">
+            <img src="https://via.placeholder.com/100x100?text=Thumbnail+1" alt="Thumbnail 1" class="thumbnail"/>
+            <img src="https://via.placeholder.com/100x100?text=Thumbnail+2" alt="Thumbnail 2" class="thumbnail"/>
+            <img src="https://via.placeholder.com/100x100?text=Thumbnail+3" alt="Thumbnail 3" class="thumbnail"/>
+            <img src="https://via.placeholder.com/100x100?text=Thumbnail+4" alt="Thumbnail 4" class="thumbnail"/>
+            <!-- More thumbnails... -->
+        </div>
+    </div>
+    </div>
+
+<script>
+    $(document).ready(function() {
+    // Change the main image when a thumbnail is clicked
+    $('.thumbnail').on('click', function() {
+        var src = $(this).attr('src');
+        $('.main-image').attr('src', src);
+
+        // Highlight the active thumbnail
+        $('.thumbnail').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    // Implement navigation functionality
+    $('.prev').on('click', function() {
+        // Move to the previous thumbnail
+        // This functionality requires more implementation detail
+    });
+
+    $('.next').on('click', function() {
+        // Move to the next thumbnail
+        // This functionality requires more implementation detail
+    });
+});
+</script>
+
+
+        <!-- FIGURE GRID -->
+
+        <!-- <div class="container">
+            <h2>Figure Grid</h2>
+            <div class="grid gap">
+                <div class="col-xs-12 col-md-4">
+                    <figure class="figure">
+                        <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                        <figcaption>Product</figcaption>
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <figure class="figure">
+                        <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                        <figcaption>Product</figcaption>
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <figure class="figure">
+                        <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                        <figcaption>Product</figcaption>
+                    </figure>
+                </div>
             </div>
         </div> -->
-</body>
-</html>
+
+
+        <!-- PRODUCT GRID  -->
+
+        <div class="container">
+            <h2 class="title">Product Grid</h2>
+            <div class="grid gap">
+                <div class="col-xs-12 col-md-4">
+                    <figure class="figure product">
+                        <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                        <figcaption>
+                            <div class ="caption-body">Product Name</div>
+                            <div>$4.99</div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <figure class="figure product">
+                        <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                        <figcaption>
+                            <div class ="caption-body">Product Name</div>
+                            <div>$4.99</div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <figure class="figure product">
+                        <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                        <figcaption>
+                            <div class ="caption-body">Product Name</div>
+                            <div>$4.99</div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div></div>
+
+
+
+
+
+    <!-- PRODUCT OVERLAY CENTER -->
+            
+    <div class="container">
+        <h2 class="title">Product Overlay</h2>
+        <div class="grid gap">
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Shop Home Decor</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Shop Lighting</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="https://via.placeholder.com/400x400?text=Coming Soon"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Shop Rugs</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div></div>
+
+    <!-- Form -->
+
+ <!--        <div class="container" id="forms">
+
+            <h2>Forms</h2>
+
+            <h2>Inputs</h2>
+
+            <div class="card soft">
+
+                <div class="container">
+                    <h3>Default Inputs</h3>
+                    <form action="" method="post">
+                        <input type="text" /><br />
+                        <input type="number" /><br />
+                        <input type="password" /><br />
+                        <input type="email" /><br />
+                        <input type="url" /><br />
+                        <input type="datetime-local" /><br />
+                        <input type="date" /><br />
+                        <input type="search" /><br />
+                    </form>
+                </div>
+
+                <div class="container">
+                    <h3>Form Input</h3>
+                    <form>
+                        <input type="text" placeholder="Text" class="form-input" />
+                        <input type="number" placeholder="Number" class="form-input" />
+                        <input type="password" placeholder="Password" class="form-input" />
+                        <input type="search" placeholder="Search" class="form-input" />
+                    </form>
+                </div>
+
+
+                <div class="container">
+                    <h3>Form Label</h3>
+                    <form>
+                        <label for="" class="form-label">Phone</label>
+                        <input type="number" placeholder="Number" class="form-input" />
+                        <label for="" class="form-label">Password</label>
+                        <input type="password" placeholder="Password" class="form-input" />
+                        <label for="" class="form-label">Search</label>
+                        <input type="search" placeholder="Search" class="form-input" />
+                    </form>
+                </div>
+
+
+                <div class="container">
+                    <h3 id="controls">Form Control</h3>
+                    <form>
+                        <div class="form-control">
+                            <label for="" class="form-label">Name</label>
+                            <input type="text" placeholder="Text" class="form-input" />
+                        </div>
+                        <div class="form-control">
+                            <label for="" class="form-label">Phone</label>
+                            <input type="number" placeholder="Number" class="form-input" />
+                        </div>
+                        <div class="form-control">
+                            <label for="" class="form-label">Password</label>
+                            <input type="password" placeholder="Password" class="form-input" />
+                        </div>
+                        <div class="form-control display-flex flex-align-center" >
+                            <div class="flex-none">
+                                <label for="" class="form-label">Search</label>
+                            </div>
+                            <div class="flex-stretch">
+                                <input type="search" placeholder="Search" class="form-input flex-stretch" />
+                            </div>
+                            <div class="flex-none">
+                                <label for="" class="form-label">Search</label>
+                            </div>
+                            <div class="flex-stretch">
+                                <input type="search" placeholder="Search" class="form-input flex-stretch" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                </div> -->
+
+    <!-- Form -->
+
+    <div class="container">
+    <h2 class="title"> Order Form</h2>
+    <div class="order-details">
+    <div class="order-title">Place Your Order</div>
+    <h2 class="title">Contact</h2>
+    <input type="email" placeholder="Email" />
+
+    <label class="checkbox-container">
+        Email me with news and offers
+        <input type="checkbox" checked="checked">
+        
+    </label>
     
+    <h2 class="title">Shipping address</h2>
+    <div class="input-group">
+        <input type="text" placeholder="First name" />
+        <input type="text" placeholder="Last name" />
+    </div>
+    <input type="text" placeholder="Company (required for business addresses)" />
+    <input type="text" placeholder="Address" />
+    <input type="text" placeholder="Apartment, suite, etc. (optional)" />
+    
+    <div class="input-group">
+        <input type="text" placeholder="City" />
+        <select>
+            <option>State</option>
+            <option>California</option>
+        </select>
+        <input type="text" placeholder="ZIP code" />
+    </div>
+
+    <button type="button" class="btn-primary">Continue to shipping</button>
+    </div>
+    </div>
+
+
+
+    <div class="container">
+    <h2 class="title">Payment Details</h2>
+    <div class="form-card">
+        <h3>Payment Information</h3>
+        <form class="form-modern" action="" method="post">
+            <!-- Cardholder's Name -->
+            <div class="form-group">
+                <input type="text" id="cardholder-name" placeholder="Cardholder's Name" required />
+            </div>
+            <!-- Card Number -->
+            <div class="form-group">
+                <input type="text" id="card-number" placeholder="Card Number" required />
+            </div>
+            <!-- Expiry Date -->
+            <div class="form-group">
+                <input type="text" id="expiry-date" placeholder="MM/YY" required />
+            </div>
+            <!-- CVV -->
+            <div class="form-group">
+                <input type="text" id="cvv" placeholder="CVV" required />
+            </div>
+            <!-- Billing Address -->
+            <div class="form-group">
+                <input type="text" id="billing-address" placeholder="Billing Address" required />
+            </div>
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Submit Order</button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+    <!-- Buttons -->
+    <h2 class="title">Buttons</h2>
+        <div class="card soft">
+            <div class="container">
+                <h3>Cart Buttons</h3>
+                <div class="quantity-selector">
+                <button class="minus">-</button>
+                <input type="number" id="quantity" value="1" min="1">
+                <button class="plus">+</button>
+            </div>
+
+            <button class="add-to-bag">Add to bag</button>
+
+            
+            </div>
+
+    <br>
+    <div class="color-selection">
+
+    <h3>Color Selection</h3>
+    <div class="colors">
+        <div class="color-option" data-color="Black">Black</div>
+        <div class="color-option" data-color="White">White</div>
+        <div class="color-option" data-color="Blue">Blue</div>
+        </div>
+    </div>
+
+    <br>
+    <h3>Search Button</h3>
+
+    <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search..." />
+    <button id="search-button">Search</button>
+    </div>
+
+    <br>
+    <h3>Default Buttons</h3>
+    <button class="default-button">Default Button</button>
+    <button class="disabled-button">Disabled Button</button>
+
+</div>
+
+       
+   
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var quantityInput = document.getElementById('quantity');
+
+    // Quantity decrement
+    document.querySelector('.minus').addEventListener('click', function() {
+        quantityInput.value = Math.max(parseInt(quantityInput.value, 10) - 1, 1);
+    });
+
+    // Quantity increment
+    document.querySelector('.plus').addEventListener('click', function() {
+        quantityInput.value = parseInt(quantityInput.value, 10) + 1;
+    });
+
+    // Color option selection
+    const colorOptions = document.querySelectorAll('.color-option');
+    colorOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            colorOptions.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+    });
+});
+
+
+
+</script>
+
+
+
+<!-- Checkboxes -->
+    <h2 class="title">Check Boxes</h2>
+        <div class="card soft">
+        
+         <label class="checkbox-container">
+            <input type="checkbox" checked="checked">
+        </label>    
+
+         <label class="toggle-switch">
+            <input type="checkbox" id="toggle">
+            <span class="slider round"></span>
+        </label>
+        <div class="product-options">
+    <div class="alert-checkbox">
+        <input type="checkbox" id="stock-alert" name="stock-alert">
+        <label for="stock-alert" class="alert-label">Stock Alert</label>
+    </div>
+    <div class="save-later-checkbox">
+        <input type="checkbox" id="save-for-later" name="save-for-later">
+        <label for="save-for-later" class="save-later-label">Save for Later</label>
+
+    </div>
+        </div>
+   
+        </div>
+    </div>
+
+<br>
+<br>
+
+   
+
 </body>
 </html>
