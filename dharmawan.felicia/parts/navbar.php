@@ -4,7 +4,7 @@
 <header class="navbar">
         <div class="container display-flex">
                 <div class="nav-crumbs nav-flex flex-none">
-                        <a href="homepage.php" class="logo">DecoSphere</a>
+                        <a href="index.php" class="logo">DecoSphere</a>
                     </div>
                <div class="flex-stretch"></div>
             
