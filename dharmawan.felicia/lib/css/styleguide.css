@@ -105,11 +105,17 @@ h6 {
     font-family: "lato", sans-serif;
 }
 
+.logo {
+    font-family: "lato", sans-serif;
+    font-weight: 700 ;
+    font-size: 24px;
+}
+
 .title {
     font-family: "lato", sans-serif;
     font-weight: 700;
     color: #1E1E1E;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 20px;
 
 }
@@ -138,12 +144,14 @@ h6 {
     font-family: "lato", sans-serif;
     font-weight: 700;
     font-size: 22pt;
+    margin-top: 15px;
 }
 
 .body-title {
  font-family: "lato", sans-serif;
     font-weight: 700;
     font-size: 14pt;
+    margin-bottom: 15px;
 }
 
 .body-text {
@@ -207,7 +215,7 @@ a:hover {
         display:block;
         padding:0.2em 0.5em;
         font-size: 14pt;
-        font-weight: 700;
+        color: #1e1e1e;
         margin-bottom: 10px;
     }
     .nav a:hover {
@@ -291,18 +299,32 @@ a:hover {
 
 
 .navbar {
-    background-color:none;
+    background-color:#f7f7f7;
     color:#E49112;
     line-height:var(--header-height);
+    margin-top: 10px;
 }
 
     .navbar h1 {
-        font-size:2em;
-        margin-top:30px;
+        font-size:24px;
+        margin-top:0px;
     }
     .navbar a {
         padding:0 0.5em;
     }
+
+.nav-pills ul {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.nav-pills li {
+    margin-right: 20px; 
+}
+
+.nav-pills li:last-child {
+    margin-right: 0; 
+}
 
 
 /* Card */
@@ -320,6 +342,7 @@ a:hover {
             border-radius:0.5em;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin-bottom:1.5px;
+            padding-left: 25px;
         }
         .card.hard {
             border-radius:0.2em;
@@ -590,7 +613,7 @@ figure {
 .order-details select {
     width: 100%;
     padding: 15px; 
-    margin-bottom: 15px; 
+    margin-bottom: 10px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px; 
@@ -1028,6 +1051,70 @@ input:checked + .slider:before {
 
 
 
+/*JSON*/
+ .form-card .form-group label {
+    font-weight: bold; 
+    display: block; 
+    margin-bottom: .5rem; 
+    color: var(--color-neutral-dark); 
+    font-size: 16px; 
+    padding-top: 15px;
+  }
 
+  .form-select {
+    display: block;
+    width: 100%; /* Full width */
+    padding: 0.5rem 0.75rem; /* Vertical padding and horizontal padding */
+    font-size: 1rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-neutral-dark);
+    background-color: var(--color-white);
+    background-position: right 0.75rem center; /* Adjust the position of the background arrow */
+    background-size: 1.5em 1.5em; /* Size of the background arrow */
+    border: 1px solid var(--color-neutral-medium);
+    border-radius: 0.25rem; /* Smaller radius for slight rounding */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none; /* No shadow for a flatter style */
+  }
 
+  .form-select-container {
+    position: relative;
+    display: block;
+  }
 
+  .form-select-container:after {
+    content: "▼";
+    font-size: 0.8rem;
+    color: var(--color-neutral-dark);
+    right: 1rem; /* Adjust according to padding */
+    top: 75%;
+    height: 1em;
+    padding: 0;
+    position: absolute;
+    pointer-events: none;
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure the arrow is above the select */
+  }
+
+  .form-select:focus {
+    border-color: #007bff;
+    outline: 0;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), /* subtle inner shadow */
+                0 0 5px rgba(0, 123, 255, 0.5); /* blue glow */
+  }
+
+  user-list-item {
+            background-color: #f9f9f9; /* Or any other color */
+            border: 1px solid #ccc; /* Optional border */
+            margin-bottom: 5px; /* Space between items */
+            padding: 10px; /* Some padding around the text */
+            border-radius: 5px; /* Optional: rounded corners */
+        }
+
+/* Optional: add :hover style for interaction */
+.user-list-item:hover {
+    background-color: #e9e9e9;
