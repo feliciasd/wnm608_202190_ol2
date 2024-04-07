@@ -16,6 +16,8 @@ $users = file_get_json("../data/users.json");
 
 //CRUD, Create Read Update Delete 
 //fully working administration form, add new users, and delete users
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['action']) && $_GET['action'] === 'add') {
     $newUser = new stdClass();
     $newUser->name = $_POST['name'] ?? '';
