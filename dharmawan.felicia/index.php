@@ -17,6 +17,8 @@
 
         <div class="body title">
 
+        <li><a href="products.sql">Product Database</a></li>
+
         <li><a href="new_products.php">See Our New Collection</a></li>
         <li><a href="product_list.php">All Products</a></li>
 
