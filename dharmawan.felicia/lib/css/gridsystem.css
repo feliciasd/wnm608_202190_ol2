@@ -5,6 +5,14 @@
 }
 
 
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+
+}
+
+
+
 .grid.ten{
 	grid-template-columns: repeat(10, 1fr);
 }
@@ -13,6 +21,7 @@
 	--grid-gap:1em;
 	grid-gap:var(--grid-gap);
 	gap:var(--grid-gap);
+	align-items: center;
 }
 
 
@@ -121,20 +130,50 @@
 	.col-xl-12 { grid-row: span 12; }
 }
 
-/* Medium devices (tablets, 600px and up) */
+/* Tablet (small devices) */
 @media (min-width: 600px) {
-  .col-md-4 { grid-column: span 4; }
-  /* Add styles for other col-md-* classes as necessary */
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* two columns for tablets */
+    }
 }
 
-/* Large devices (desktops, 900px and up) */
+/* Desktop (medium devices) */
 @media (min-width: 900px) {
-  .col-lg-4 { grid-column: span 4; }
-  /* Add styles for other col-lg-* classes as necessary */
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* three columns for desktops */
+    }
 }
 
-/* Extra large devices (large desktops, 1280px and up) */
-@media (min-width: 1280px) {
-  .col-xl-4 { grid-column: span 4; }
-  /* Add styles for other col-xl-* classes as necessary */
+
+/* Large Desktops (large devices) */
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* four columns for larger desktops */
+    }
+}
+
+/*CART*/
+
+.cart-grid {
+	display: grid;
+}
+
+
+
+.cart-grid.gap {
+	--grid-gap:1em;
+	align-items: center;
+}
+
+
+@media (min-width: 900px) {
+    .cart-grid {
+        grid-template-columns: repeat(1, 1fr); /* three columns for desktops */
+    }
+}
+
+@media (min-width: 600px) {
+    .cart-grid {
+        grid-template-columns: repeat(1, 1fr); /* two columns for tablets */
+    }
 }

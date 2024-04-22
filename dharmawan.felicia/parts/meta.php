@@ -4,6 +4,7 @@
 
     <meta charset="UTF-8">
 
+    <base href="http://feliciasd.com/aau/ixd608/dharmawan.felicia/">
 
     <link rel="stylesheet" href="../dharmawan.felicia/lib/css/styleguide.css">
     <link rel="stylesheet" href="../dharmawan.felicia/lib/css/gridsystem.css">

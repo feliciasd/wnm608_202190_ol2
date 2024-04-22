@@ -140,11 +140,26 @@ h6 {
     font-size: 32pt;
 }
 
+.home-heading {
+    font-family: "lato", sans-serif;
+    font-weight: 700;
+    font-size: 22pt;
+    margin-top: 15px;
+    color: #E49112;
+    text-align: center;
+}
+
+.home-heading:hover {
+    color: #F5C375;
+}
+
 .subheading {
     font-family: "lato", sans-serif;
     font-weight: 700;
     font-size: 22pt;
     margin-top: 15px;
+    color: #E49112;
+
 }
 
 .body-title {
@@ -170,7 +185,7 @@ a{
     text-decoration:none;
 }
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -302,7 +317,8 @@ a:hover {
     background-color:#f7f7f7;
     color:#E49112;
     line-height:var(--header-height);
-    margin-top: 10px;
+    margin-top: 0px;
+    padding-top:10px;
 }
 
     .navbar h1 {
@@ -343,6 +359,7 @@ a:hover {
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin-bottom:1.5px;
             padding-left: 25px;
+            padding-right: 25px;
         }
         .card.hard {
             border-radius:0.2em;
@@ -499,12 +516,16 @@ figure {
     border-radius:0em;
     overflow:hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
 }
 
 .figure.product:hover {
     transform: scale(1.03); /* Slight zoom effect on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to lift the card */
 }
+
+
+
 .product-overlay {
     position:relative;
     overflow:hidden;
@@ -551,21 +572,74 @@ figure {
 }
 
 .product-gallery {
-    position: relative;
-    width: 100%;
+  flex: 1;
+  max-width: 100%; /* This should make the container as wide as its content */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.product-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 1.5em;
+}
+
+.product-info {
+    flex: 1; /* This will allow the info to grow and take available space */
+    max-width: 200%; /* This limits the info to less than half of the container to allow some space between */
+    margin-left: 20px;
 }
 
 .main-image-container {
-    width: 80%; /* or adjust to your preferred size */
-    margin: none;
-    display: flex;
-    justify-content: left;
+    margin-top: 10px;
 }
-
 .main-image {
     width: 100%;
+    height: auto;
     display: flex;
-    justify-content: left;
+    
+    border-radius:0.5em;
+}
+
+@media (max-width: 800px) { /* Adjust the breakpoint as needed */
+    .product-display {
+        flex-direction: column;
+    }
+    .product-gallery,
+    .product-info {
+        max-width: 100%;
+    }
+}
+
+.product-name {
+    font-family: "lato", sans-serif;
+    font-weight: 700;
+    font-size: 20pt;
+    color: #E49112;
+}
+
+.product-price {
+    font-family: "lato", sans-serif;
+    font-weight: 600;
+    font-size: 16pt;
+}
+
+.product-title {
+    font-family: "lato", sans-serif;
+    font-weight: 600;
+    font-size: 15pt;
+    margin-top: 20px;
+}
+
+.product-description {
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+    font-size: 12pt;
+    margin-bottom: 15px;
+    margin-top: 10px;
+
 }
 
 .thumbnails {
@@ -573,6 +647,10 @@ figure {
     justify-content: left;
     gap: 10px;
     margin-top: 10px;
+    width: 12em;
+    height: 6em;
+    object-fit:contain;
+    padding-bottom:5px;
 }
 
 .thumbnail {
@@ -596,6 +674,7 @@ figure {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     font-family: "Lato", sans-serif;
+    margin-top: 1em;
 }
 
 /* Headings */
@@ -753,6 +832,7 @@ figure {
     border: 1px solid #ccc;
     display: inline-flex;
     border-radius: 50px; 
+    margin-top: 15px;
 }
 
 .quantity-selector button {
@@ -1118,3 +1198,154 @@ input:checked + .slider:before {
 /* Optional: add :hover style for interaction */
 .user-list-item:hover {
     background-color: #e9e9e9;
+}
+
+
+.cart-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas:
+        "thumbnail name price quantity"
+        "thumbnail remove remove quantity";
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.cart-thumbnail {
+    grid-area: thumbnail;
+}
+
+
+.product-info {
+    padding: 0.5rem;
+}
+
+.cart-product-name {
+    grid-area: name;
+    /* Ensures the text doesn't overflow its container */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "lato", sans-serif;
+    font-weight: 700;
+    font-size: 16pt;
+    color: #E49112;
+    width: 1000px;
+    margin-right: 0;
+}
+
+.product-price {
+    grid-area: price;
+    /* Align the price on the right */
+    justify-self: end;
+}
+
+.product-remove a {
+    color: #F44336; /* Red color for delete link */
+    text-decoration: none;
+    cursor: pointer;
+    grid-area: remove;
+    justify-self: start;
+}
+
+.product-quantity .form-input {
+    width: 50px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;  
+}
+
+.product-quantity {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-product-info {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 200px;
+}
+
+.cart-total {
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+    font-size: 14pt;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+
+    .cart-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cart-product-info, .product-quantity, .product-subtotal {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    
+}
+
+/* Styles for totals */
+.cart-totals {
+    padding: 1rem;
+    text-align: right;
+}
+
+.cart-totals .total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.cart-totals .total-line strong {
+    font-weight: bold;
+}
+
+.cart-totals .total-line span {
+    min-width: 80px; /* Ensures alignment */
+}
+
+/* Checkout button */
+.checkout-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 1rem 0;
+}
+
+.checkout-button:hover {
+    background: #0056b3;
+}
+
+.cart-thumbnails {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    margin-top: 10px;
+    width: 6em;
+    height: 6em;
+    object-fit:contain;
+    padding-bottom:5px;
+    padding-right: 10px;
+}
+
+.quantity-input {
+    width: 100%;
+    /* Other styling for the input */
+}
+
+/

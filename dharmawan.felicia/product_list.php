@@ -15,18 +15,29 @@
     <div class="card soft">
         <h2 class="subheading">Product List</h2>
 
-        <div class="body title">
+        
 
-        <li><a href="products.sql">Product Database</a></li>
+        <?php
 
-        <li><a href="product_item.php?id=1">Product 1</a></li>
-        <li><a href="product_item.php?id=2">Product 2</a></li>
-        <li><a href="product_item.php?id=3">Product 3</a></li>
-        <li><a href="product_item.php?id=4">Product 4</a></li>
-        <li><a href="product_item.php?id=5">Product 5</a></li>
-        <li><a href="product_item.php?id=6">Product 6</a></li>
-        <li><a href="product_item.php?id=7">Product 7</a></li>
-        <li><a href="product_item.php?id=8">Product 8</a></li>
+        include_once "lib/php/functions.php";
+        include_once "parts/templates.php";
+
+        $result = makeQuery(
+            makeConn(),
+            "
+            SELECT *
+            -- SELECT `id`, `name`, `price`
+            FROM `products`
+            ORDER BY `price` DESC
+            LIMIT 12
+            "
+        );
+
+        echo "<div class='grid gap'>",array_reduce($result,'productListTemplate'),"</div>";
+
+
+        ?>
+
 
     </div>
     </div>                  

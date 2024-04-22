@@ -1,0 +1,77 @@
+[
+	{
+
+		"name": "Felicia Dharmawan",
+		"type": "Student",
+		"email": "fdharmaw2@art.edu",
+		"classes": [608,677,820]	
+	},
+
+	{
+
+		"name": "Geraldo Vladian",
+		"type": "Teacher",
+		"email": "gvladian@art.edu",
+		"classes": [608,617,820]	
+	},
+
+	{
+
+		"name": "Jessica Eli",
+		"type": "Administrator",
+		"email": "jess.eli@art.edu",
+		"classes": [608,617,210]	
+	},
+
+	{
+
+		"name": "Clement Hironimus",
+		"type": "Student",
+		"email": "clemt@art.edu",
+		"classes": [608,617,710]	
+	},
+
+	{
+        "name": "Charles Moore",
+        "type": "Administrator",
+        "email": "danderson@art.edu",
+        "classes": [608, 617, 710, 202]
+    },
+    {
+        "name": "William Smith",
+        "type": "Administrator",
+        "email": "mjackson@art.edu",
+        "classes": [608, 617, 710, 909]
+    },
+    {
+        "name": "Patricia Moore",
+        "type": "Student",
+        "email": "rwilliams@art.edu",
+        "classes": [608, 617, 710, 101]
+    },
+    {
+        "name": "Elizabeth Davis",
+        "type": "Student",
+        "email": "jgarcia@art.edu",
+        "classes": [608, 617, 710, 909]
+    },
+    {
+        "name": "Sarah Garcia",
+        "type": "Student",
+        "email": "jhernandez@art.edu",
+        "classes": [608, 617, 710, 707]
+    },
+    {
+        "name": "Elizabeth Miller",
+        "type": "Student",
+        "email": "llopez@art.edu",
+        "classes": [608, 617, 710, 505]
+    },
+    {
+        "name": "John Wilson",
+        "type": "Student",
+        "email": "jjones@art.edu",
+        "classes": [608, 617, 710, 606]
+    }
+
+]
