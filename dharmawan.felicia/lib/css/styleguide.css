@@ -1213,6 +1213,38 @@ input:checked + .slider:before {
 
 }
 
+ .cart-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1em;
+            align-items: center;
+            margin-bottom: 1em;
+            background-color: #f9f9f9;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+        }
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.cart-item-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-item-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.cart-total {
+    border-top: 1px solid #e1e1e1;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
 .cart-thumbnail {
     grid-area: thumbnail;
 }
@@ -1347,5 +1379,69 @@ input:checked + .slider:before {
     width: 100%;
     /* Other styling for the input */
 }
+
+.cart-item, .summary-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1em;
+            align-items: center;
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+}
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.cart-item-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-item-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.delete-button {
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #e82c2c;
+}
+
+.color-selector {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 0.5em;
+}
+
+.color-selector :focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 2px #007bff;
+}
+
+
 
 /

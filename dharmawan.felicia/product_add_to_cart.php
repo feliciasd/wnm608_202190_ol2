@@ -1,36 +1,35 @@
-
 <?php
+session_start();
 
-include_once "lib/php/functions.php";
+function sanitizeInput($data) {
+    return htmlspecialchars(strip_tags($data));
+}
 
-$product = makeQuery(makeConn(),"SELECT * FROM `products` WHERE `id` =" .$_GET['id'])[0];
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
+function updateCart($cart, $productId, $quantity, $color) {
+    if (isset($cart[$productId])) {
+        // $cart[$productId]['quantity'] += $quantity;
+        $cart[$productId]['quantity'] += $quantity;
+        $cart[$productId]['color'] = $color;
+    } else {
+        $cart[$productId] = ['quantity' => $quantity, 'color' => $color];
+    }
+    return $cart;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'], $_POST['quantity'], $_POST['color'])) {
+    $productId = sanitizeInput($_POST['product_id']);
+    $quantity = (int) sanitizeInput($_POST['quantity']);
+    $color = sanitizeInput($_POST['color']);
+    
+    $_SESSION['cart'] = updateCart($_SESSION['cart'], $productId, $quantity, $color);
+    header("Location: cart_page.php");
+    exit;
+} else {
+    // Handle error or redirect if necessary parameters are missing
+    exit('Required parameters not set.');
+}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Product List</title>
-
-    <?php include "parts/meta.php"; ?>
-
-</head>
-<body>
-
-    <?php include "parts/navbar.php"; ?>
-           
-<div class="container">
-    <div class="card soft">
-        <h2 class="subheading">You added <?= $product->name ?> to your cart</h2>
-
-        <div class="display-flex">
-        <div class="flex-none"><a href="product_list.php">Continue Shopping</a></div>
-        <div class="flex-stretch"></div>
-        <div class="flex-none"><a href="cart_page.php">Go to Cart</a></div>
-        
-
-    </div>                  
-
-</body>
-</html>

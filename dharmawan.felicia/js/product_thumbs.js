@@ -40,3 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.querySelectorAll('.cart-items select[name="quantity"]').forEach(selectElement => {
+        selectElement.addEventListener('change', () => {
+            selectElement.form.submit();
+        });
+    });
+
