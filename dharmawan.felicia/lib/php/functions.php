@@ -11,8 +11,6 @@ function file_get_json($filename){
 }
 
 
-
-
 include_once "auth.php";
 function makeConn() {
 	$conn = new mysqli(...MYSQLIAuth());
@@ -31,3 +29,22 @@ function makeQuery($conn,$qry) {
 	}
 	return $a;
 }
+
+
+
+// Print text into console (like "console.log" in JavaScript)
+function debug_to_console($data) {
+    if (is_array($data) || is_object($data)) {
+        $data = json_encode($data);
+    } else {
+        $data = strval($data);
+    }
+    echo "<script>console.log('PHP Debug: " . addslashes($data) . "');</script>";
+}
+
+
+
+
+
+
+

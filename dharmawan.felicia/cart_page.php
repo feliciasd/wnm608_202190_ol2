@@ -105,6 +105,7 @@ $total = $subtotal + $taxes;
     </div>
     <p><a href="product_checkout.php" class="checkout-button">Checkout</a></p>
 </div>
-
 </body>
+
+<?php include "parts/footer.php"; ?>
 </html>

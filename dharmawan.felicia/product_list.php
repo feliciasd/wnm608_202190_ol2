@@ -32,7 +32,7 @@
             </form>
         </div>
 
-        <div class="form-control display-flex">
+        <div class="form-control display-flex flex-wrap">
             <div class="flex-none">
                 <button data-filter="category" data-value="" type="button" class="form-button">All</button>
             </div>
@@ -78,4 +78,7 @@
                 
 
 </body>
+
+<?php include "parts/footer.php"; ?>
+
 </html>

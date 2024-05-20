@@ -1,3 +1,40 @@
+<?php
+session_start();
+include_once "lib/php/functions.php";
+include_once "parts/templates.php";
+
+function getProductDetails($productId) {
+    if (!$productId) return null;
+    $result = makeQuery(makeConn(), "SELECT * FROM `products` WHERE `id` = $productId");
+    if ($result) {
+        $product = $result[0];
+        $product = (object) $product;
+        return [
+            'thumbnail' => $product->thumbnail,
+            'name' => $product->name,
+            'price' => $product->price,
+            'colors' => explode(", ", $product->colors)  // Assuming colors are stored as "Red, Blue, Green"
+        ];
+    } else {
+        return null;
+    }
+}
+
+
+
+$subtotal = 0;
+$taxRate = 0.085; // 8.5% tax rate
+foreach ($_SESSION['cart'] as $productId => $details) {
+    $product = getProductDetails($productId);
+    if ($product) {
+        $subtotal += $product['price'] * $details['quantity'];
+    }
+}
+
+$taxes = $subtotal * $taxRate;
+$total = $subtotal + $taxes;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +49,43 @@
     <?php include "parts/navbar.php"; ?>
 
 <div class="container">
-    <div class="order-details">
+        <div class="checkout-grid">
+
+    <div class="checkout-grid-item order-details">
+    <h2 class="subheading">Order Details</h2>
+    <div class="cart-items">
+        <?php if (empty($_SESSION['cart'])): ?>
+            <p>Your cart is empty.</p>
+        <?php else: ?>
+            <?php foreach ($_SESSION['cart'] as $productId => $item): ?>
+                <?php $product = getProductDetails($productId); ?>
+                <?php if ($product): ?>
+                    <div class="cart-item">
+                        <img src="<?= $product['thumbnail'] ?>" alt="<?= $product['name'] ?>" class="product-thumbnail">
+                        <div>
+                            <div class="cart-item-name"><?= $product['name'] ?></div>
+                            <div class="cart-item-detail">
+                                <span>Total: $<?= number_format($item['quantity'] * $product['price'], 2) ?></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <div class="container">
+            <div class="cart-items">
+                <h3>Order Summary</h3>
+                <p>Subtotal: $<?= number_format($subtotal, 2) ?></p>
+                <p>Taxes (8.5%): $<?= number_format($taxes, 2) ?></p>
+                <p>Total: $<?= number_format($total, 2) ?></p>
+            </div>
+        <?php endif; ?>
+        <br>
+    </div>
+</div>
+</div>
+
+    <div class="checkout-grid-item order-details">
+    
     <div class="order-title">Place Your Order</div>
     <h2 class="title">Contact</h2>
     <input type="email" placeholder="Email" />
@@ -42,12 +115,12 @@
     </div>
 
 
-</div>    
+
 
 <br>
 
-<div class="container">
-    <div class="form-card">
+
+    <div class="payment-card">
         <h3>Payment Information</h3>
         <form class="form-modern" action="" method="post">
             <!-- Cardholder's Name -->
@@ -73,11 +146,14 @@
             <!-- Submit Button -->
             <div class="form-group">
                 <!-- <button type="submit" class="btn-submit">Submit Order</button> -->
-                <p><a href="product_confirmation.php" button type="submit" class="btn-submit">Submit Order</a></p>
+                <p><a href="product_confirmation.php" button type="submit" class="checkout-button">Submit Order</a></p>
             </div>
         </form>
     </div>
 </div>
 
 </body>
+
+<?php include "parts/footer.php"; ?>
+
 </html>

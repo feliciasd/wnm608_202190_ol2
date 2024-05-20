@@ -69,7 +69,64 @@
         ?>
 
     </div>
-    </div>               
+    </div>
+
+<div class="container" id="viewWindow">
+    <br>
+        <div class="view-window" style="background-image: url(img/products/view-window.jpg);"></div>
+    </div>  
+
+<div class="container">
+    <div class="card soft">
+        <h2 class="home-heading"><a href="product_list.php">Our Categories</a></h2>
+        <div class="home-grid gap">
+
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="img/products/product_1_2.jpg"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Deco Vase</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="img/products/product_7_3.jpg"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Deco Lamp</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="img/products/product_10_2.jpg"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Deco Wall Decor</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <figure class="figure product-overlay">
+                    <img src="img/products/product_11.jpg"  alt=""/>
+                    <figcaption>
+                        <div class="caption-body">
+                            <div>Home Decor</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+            <br>
+        </div></div></div>
+
 
 </body>
+
+<?php include "parts/footer.php"; ?>
+
 </html>

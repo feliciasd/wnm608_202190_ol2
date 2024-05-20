@@ -666,6 +666,12 @@ figure {
 
 
 /* Shared Styles */
+
+.payment-card {
+    max-width: 600px;
+    font-family: "Lato", sans-serif;
+}
+
 .form-card,
 .order-details {
     max-width: 600px;
@@ -678,7 +684,7 @@ figure {
 }
 
 /* Headings */
-.form-card h3,
+.form-card h3, .payment-card h3,
 .order-details h2 {
     margin-bottom: 1em;
     color: #333;
@@ -686,7 +692,7 @@ figure {
 }
 
 /* Input Styles */
-.form-card .form-group input,
+.form-card .payment-card .form-group input,
 .order-details input[type="email"],
 .order-details input[type="text"],
 .order-details select {
@@ -699,13 +705,13 @@ figure {
 }
 
 
-.form-card .form-group input::placeholder,
+.form-card .payment-card .form-group input::placeholder,
 .order-details input::placeholder {
     color: #a3a3a3;
 }
 
 /* Focus on Inputs */
-.form-card .form-group input:focus,
+.form-card .payment-card .form-group input:focus,
 .order-details input:focus,
 .order-details select:focus {
     outline: none;
@@ -713,7 +719,7 @@ figure {
 }
 
 /* Button Styles */
-.form-card .btn-submit,
+.form-card .payment-card .btn-submit,
 .order-details .btn-primary {
     width: auto; 
     padding: 16px 48px; 
@@ -732,7 +738,7 @@ figure {
 }
 
 /* Button Hover States */
-.form-card .btn-submit:hover,
+.form-card .payment-card .btn-submit:hover,
 .order-details .btn-primary:hover {
     background: #0056b3;
 }
@@ -1481,13 +1487,270 @@ input:checked + .slider:before {
 
 .form-dropdown {
     padding: 7.5px 15px;
-    margin-left: 185px;
     border-radius: 20px;
     border: 2px solid #ccc;
     font-size: 13px;
     cursor: pointer;
     font-family: "Lato", sans-serif;
     padding-right: 28px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 800px) {
+    .form-dropdown {
+    padding: 7.5px 15px;
+    margin-left: 13.5em;
+    border-radius: 20px;
+    border: 2px solid #ccc;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
+    padding-right: 28px;
+}
+
+}
+
+.admin-item {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 1em;
+            align-items: center;
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+}
+.admin-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.admin-item-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-delete-button {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100px;
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-delete-button:hover {
+
+    background-color: #e82c2c;
+}
+
+.admin-edit-button {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100px;
+    background-color: #E49113;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-edit-button:hover {
+    background-color: #BF780D;
+}
+
+.admin-product-item {
+    padding: 1em;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin-bottom: 2em;
+}
+
+.admin-product-images img {
+    width: 200px; /* or any size that fits the design */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px; /* adds spacing between images */
+    margin-bottom: 15px;
+}
+
+.admin-product-details p {
+    margin: 10px 0; /* gives a little space between details */
+    font-family: "lato", sans-serif;
+    font-weight: 400;
+    font-size: 14pt;
+}
+
+.admin-title {
+    font-family: "lato", sans-serif;
+    font-weight: 700;
+    color: #E49113;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.form-admin-card {
+    background: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: 100%; /* Set the form card to take full available width */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.form-admin-card {
+    margin-bottom: 1em;
+    color: #333;
+    font-family: "lato", sans-serif;
+    font-weight: 700;
+    font-size: 14pt;
+    margin-bottom: 15px;
+}
+
+/* Input Styles */
+.form-admin-card .form-group input {
+    width: 100%;
+    padding: 15px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; 
+}
+
+
+.form-admin-card .form-group input::placeholder {
+    color: #a3a3a3;
+}
+
+/* Focus on Inputs */
+.form-card .form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.body-text strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control-admin {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: start; /* Aligns the buttons at the start of the container */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Extra space above the button group */
+}
+
+/* Button Styles */
+.admin-submit, .admin-delete {
+    background-color: #007BFF; /* Blue background */
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* ensure transition is smooth */
+    font-size: 16px;
+    margin-right: 8px; /* Space between buttons */
+}
+
+.admin-delete {
+    background-color: #FF4136; /* Red for delete */
+    margin-right: 0; /* No right margin on the last button */
+    margin-bottom: 10px;
+}
+
+.admin-submit:hover {
+    background-color: #0064d9; /* Darker blue for hover */
+}
+
+.admin-delete:hover {
+    background-color: #cc342b; /* Darker red for hover */
+}
+
+.footer {
+    padding: 16px 0;
+    background-color: #f7f7f7;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    border-top: 1px solid #eee;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.footer-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.footer-nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.footer p {
+    margin-top: 15px;
+}
+
+
+
+.flex-none {
+    flex: none;
+}
+
+
+
+.order-form {
+    padding: 20px;
+    border: 1px solid #ccc; /* Optional styling */
+    border-radius: 8px; /* Optional styling */
+}
+
+.flex-wrap {flex-wrap:wrap;}
+
+.hidden {
+    display: none;
 }
 
 /

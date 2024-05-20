@@ -65,11 +65,11 @@ function showUserPage($user) {
     </div>
     <div class="form-group">
         <label for="email" class="body-text"><strong>Email</strong></label>
-        <input type="email" name="email" id="email" value="$user->email" class="form-control lato-regular">
+        <input type="email" name="email" id="email" value="$user->email" class="form-control-admin lato-regular">
     </div>
     <div class="form-group">
         <label for="classes" class="body-text"><strong>Classes</strong></label>
-        <input type="text" name="classes" id="classes" value="$classes" class="form-control lato-regular">
+        <input type="text" name="classes" id="classes" value="$classes" class="form-control-admin lato-regular">
     </div>
     <div>
         <button type="submit" class="btn-submit lato-bold">Update User</button>
