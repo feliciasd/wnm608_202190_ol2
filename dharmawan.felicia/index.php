@@ -30,7 +30,7 @@
             SELECT *
             -- SELECT `id`, `name`, `price`
             FROM `products`
-            ORDER BY `name` DESC
+            ORDER BY `date_added` DESC
             LIMIT 3
             "
         );
@@ -58,7 +58,7 @@
             SELECT *
             -- SELECT `id`, `name`, `price`
             FROM `products`
-            ORDER BY `price` DESC
+            ORDER BY `name` ASC
             LIMIT 3
             "
         );

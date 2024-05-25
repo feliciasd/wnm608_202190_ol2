@@ -1,5 +1,16 @@
 
- 
+ <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$cartCount = 0;
+if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $item) {
+        $cartCount += $item['quantity'];
+    }
+}
+?>
+
  <input type="checkbox" id="menu" class="hidden">
 
 <header class="navbar">
@@ -20,7 +31,7 @@
                 <ul>
                 <li><a href="new_products.php">New</a></li>
                 <li><a href="product_list.php">Shop</a></li>
-                <li><a href="cart_page.php">Cart</a></li>
+                <li><a href="cart_page.php">Cart (<?= $cartCount ?>)</a></li>
 
                 <li><a href="admin/index.php">Admin</a></li>
             </ul>

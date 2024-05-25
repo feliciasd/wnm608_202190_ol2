@@ -20,15 +20,22 @@ function getProductDetails($productId) {
     }
 }
 
-
+// Initialize cart if not set
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
 $subtotal = 0;
 $taxRate = 0.085; // 8.5% tax rate
+
+// Check if the cart is not empty before iterating
+if (!empty($_SESSION['cart'])) {
 foreach ($_SESSION['cart'] as $productId => $details) {
     $product = getProductDetails($productId);
     if ($product) {
         $subtotal += $product['price'] * $details['quantity'];
     }
+}
 }
 
 $taxes = $subtotal * $taxRate;

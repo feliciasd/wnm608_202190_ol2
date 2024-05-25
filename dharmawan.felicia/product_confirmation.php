@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+// Clear the cart after checkout confirmation
+unset($_SESSION['cart']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

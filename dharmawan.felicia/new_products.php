@@ -26,8 +26,8 @@
             SELECT *
             -- SELECT `id`, `name`, `price`
             FROM `products`
-            ORDER BY `name` DESC
-            LIMIT 3
+            ORDER BY `date_added` DESC
+            LIMIT 5
             "
         );
 
